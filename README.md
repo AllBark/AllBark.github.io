@@ -1,3 +1,3 @@
 # AllBark.github.io
 
-My page :)
+[My page :)](index.html)

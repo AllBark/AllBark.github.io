@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function GiveRole() {
+            var role = "";
+
+            switch(parseInt(Math.random() * 10)) {
+                case 0:
+                    role = "Captain - hey, wait, that's my job!";
+                    break;
+                case 1:
+                    role = "First Mate";
+                    break;
+                default:
+                    role = "Error: Websites don't work on pirate ships :(";
+                    break;
+            }
+
+            document.getElementById('role').innerHTML = role;
+        }
+    </script>
+
+    <h1>Ship Roles</h1>
+    <h2>Click below to get your role and task for today.</h2>
+
+    <button type="button" onclick="GiveRole()"></button>
+    <p id="role"></p>
+</html>

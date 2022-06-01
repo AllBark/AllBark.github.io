@@ -1,5 +1,38 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style>
+            ul {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              border: 1px solid #e7e7e7;
+              background-color: #f3f3f3;
+            }
+            
+            li {
+              float: left;
+            }
+            
+            li a {
+              display: block;
+              color: #666;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+            }
+            
+            li a:hover:not(.active) {
+              background-color: #ddd;
+            }
+            
+            li a.active {
+              color: white;
+              background-color: #04AA6D;
+            }
+            </style>
+    </head>
     <script>
         function GiveRole() {
             var role = "";
@@ -42,11 +75,62 @@
 
             document.getElementById('role').innerHTML = "Role: " + role;
         }
+
+        function GiveTask() {
+            var task = "";
+
+            switch(parseInt(Math.random() * 10)) {
+                case 0:
+                    task = "Clean out the cannons - stare straight down it to make sure it's clean.";
+                    break;
+                case 1:
+                    task = "Scrub the decks - if it's December, deck the halls too.";
+                    break;
+                case 2:
+                    task = "Count our gold - I'll know if any goes missing.";
+                    break;
+                case 3:
+                    task = "Tie knots - literally anywhere. People's hair, fish nets, wherever.";
+                    break;
+                case 4:
+                    task = "Shippost - take selfies on the ship and upload them to InstArrrGram.";
+                    break;
+                case 5:
+                    task = "Pirate some shows - we need something to watch tonight.";
+                    break;
+                case 6:
+                    task = "Sing shanties - everyone loves Carly Rae Jepsen.";
+                    break;
+                case 7:
+                    task = "Lookout - if you see anything, shout \"Chips Ahoy!\"";
+                    break;
+                case 8:
+                    task = "Moderate the server - ban two random people and throw one person overboard.";
+                    break;
+                case 9:
+                    task = "Steer - idk where we're going, just spin the wheel around a bit.";
+                    break;
+                default:
+                    role = "Error: Websites don't work on pirate ships :(";
+                    break;
+            }
+
+            document.getElementById('task').innerHTML = "Task: " + role;
+        }
     </script>
+
+    <body>
+
+    <title>Ship Roles</title>
 
     <h1>Ship Roles</h1>
     <h2>Click below to get your role and task for today.</h2>
 
     <button type="button" onclick="GiveRole()">Give me my role!</button>
     <p id="role"></p>
+
+    <button type="button" onclick="GiveTask()">Give me my task!</button>
+    <p id="task"></p>
+
+    </body>
 </html>

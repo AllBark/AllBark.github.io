@@ -31,9 +31,37 @@
               color: white;
               background-color: #04AA6D;
             }
+
+            .leftBox {
+                float: left;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .leftBoxBelow {
+                float: left;
+                clear: both;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .rightBox {
+                float: right;
+                border: 1px solid black;
+                padding: 10px;
+                margin: 10px;
+            }
             </style>
     </head>
+
     <script>
+       setInterval(SetCrypto, 1000);
+       var yarr = Math.random() * -10000;
+       var ahoy = Math.random() * -500;
+       var yoho = Math.random() * -5000;
+        
         function GiveRole() {
             var role = "";
 
@@ -117,6 +145,61 @@
 
             document.getElementById('task').innerHTML = "Task: " + task;
         }
+
+        function SetCrypto() {
+            document.getElementById('yarr').innerHTML = "YARR: " + yarr;
+            yarr += (Math.random() * 300) - 150;
+            document.getElementById('ahoy').innerHTML = "AHOY: " + ahoy;
+            ahoy += (Math.random() * 50) - 25;
+            document.getElementById('yoho').innerHTML = "YOHO: " + yoho;
+            yoho += (Math.random() * 700) - 350;
+        }
+
+        function GetMutiny() {
+            document.getElementById('mutiny').innerHTML = "Approx. 0% odds of successful mutiny.";
+        }
+
+        function ResolveDispute() {
+            var resolution = "";
+            switch (parseInt(Math.random() * 10)) {
+                case 0:
+                    resolution = "Arm wrestle it out like true pirates.";
+                    break;
+                case 1:
+                    resolution = "Throw some fish bones and read the fates or whatever.";
+                    break;
+                case 2:
+                    resolution = "Whoever can climb the rigging the fastest wins the argument.";
+                    break;
+                case 3:
+                    resolution = "Just get over it, crybaby.";
+                    break;
+                case 4:
+                    resolution = "Drink a keg, then look at the problem again with new insight.";
+                    break;
+                case 5:
+                    resolution = "Move your eyepatch to the other eye and look at the problem from a new perspective.";
+                    break;
+                case 6:
+                    resolution = "True pirates follow what their hearts tell them.";
+                    break;
+                case 7:
+                    resolution = "Kick the issue with your pegleg.";
+                    break;
+                case 8:
+                    resolution = "Look to the stars for answers. Make sure it's not daytime first, though.";
+                    break;
+                case 9:
+                    resolution = "Run around yelling explicatives and waving your arms.";
+                    break;
+                default:
+                    resolution = "Error: Websites don't work on pirate ships :(";
+                    break;
+            }
+
+            document.getElementById("resolution").innerHTML = resolution;
+        }
+
     </script>
 
     <body>
@@ -129,14 +212,41 @@
 
     <title>Ship Roles</title>
 
+    <div class="leftBox">
     <h1>Ship Roles</h1>
     <h2>Click below to get your role and task for today.</h2>
 
-    <button type="button" onclick="GiveRole()">Give me my role!</button>
+    <button type="button" onclick="GiveRole(); this.disabled = true;">Give me my role!</button>
     <p id="role"></p>
 
-    <button type="button" onclick="GiveTask()">Give me my task!</button>
+    <button type="button" onclick="GiveTask(); this.disabled = true;">Give me my task!</button>
     <p id="task"></p>
+    </div>
+
+    <div class="leftBox">
+        <h1>Shiptocurrency</h1>
+        <h2>We promise it's profitable!</h2>
+
+        <p id="yarr">YARR: </p>
+        <p id="ahoy">AHOY: </p>
+        <p id="yoho">YOHO: </p>
+    </div>
+
+    <div class="leftBoxBelow">
+        <h1>Mutiny Checker</h1>
+        <h2>Click button to analyze odds of a successful mutiny at this time.</h2>
+        <button type="button" onclick="GetMutiny()">Odds of success?</button>
+        <p id="mutiny"></p>
+    </div>
+
+    <div class="leftBox">
+        <h1>Dispute Resolver</h1>
+        <h2>If an issue is not worth bringing to the attention of a Boatswain, or the needed dispute mediator is unavailable,<br>
+            you may use this application to generate a fair solution.
+        </h2>
+        <button type="button" onclick="ResolveDispute()">Resolve my dispute.</button>
+        <p id="resolution"></p>
+    </div>
 
     </body>
 </html>

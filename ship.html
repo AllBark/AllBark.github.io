@@ -9,20 +9,44 @@
                     role = "Captain - hey, wait, that's my job!";
                     break;
                 case 1:
-                    role = "First Mate";
+                    role = "First Mate - I'd trust you with my life, but not my wallet.";
+                    break;
+                case 2:
+                    role = "Quarter Master - you're in charge of the change around here.";
+                    break;
+                case 3:
+                    role = "Sailing Master - go read a sextant or something.";
+                    break;
+                case 4:
+                    role = "Gunner - try to blow up the enemy ship and not our own.";
+                    break;
+                case 5:
+                    role = "Powder Monkey - you're in charge of makeup on this ship. I think.";
+                    break;
+                case 6:
+                    role = "Boatswain - you're responsible for knowing the difference between a ship and a boat.";
+                    break;
+                case 7:
+                    role = "Surgeon - if someone gets scurvy, throw a lemon at them.";
+                    break;
+                case 8:
+                    role = "Cook - warm up the hotpockets before mealtimes.";
+                    break;
+                case 9:
+                    role = "Parrot - someone's gotta sing the sea shanties around here.";
                     break;
                 default:
                     role = "Error: Websites don't work on pirate ships :(";
                     break;
             }
 
-            document.getElementById('role').innerHTML = role;
+            document.getElementById('role').innerHTML = "Role: " + role;
         }
     </script>
 
     <h1>Ship Roles</h1>
     <h2>Click below to get your role and task for today.</h2>
 
-    <button type="button" onclick="GiveRole()"></button>
+    <button type="button" onclick="GiveRole()">Give me my role!</button>
     <p id="role"></p>
 </html>

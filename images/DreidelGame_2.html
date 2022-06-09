@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html><head></head><body>
+  
+<h1>Dreidel Game</h1>
+
+<button onclick="gameStart();">Spin the Dreidel</button>
+
+<button onclick="reset()">Reset</button>  
+
+<img src="https://i.gifer.com/origin/fe/febdd926384573482f65abb3b337b59d.gif" alt="funny GIF" width="25%" id = "Dreidel Gif">
+
+<script>
+
+var playerOneMoney = 100
+var playerTwoMoney = 100
+
+var pot = 0
+
+var dreidelSides = ["Gimel", "Shin", "Hay", "Nun"]
+
+var count = 0
+
+function gameStart(){
+
+  if(playerOneMoney <= 0){
+    alertNoMoney("Player One")
+    return
+  }
+
+  if(playerTwoMoney <= 0){
+    alertNoMoney("Player Two")
+    return
+  }
+
+  var wager = prompt("How much would you like to wager" + "\r\n" + "Player One Sheckel Count: " + playerOneMoney + "\r\n" + "Player Two Sheckel Count: " + playerTwoMoney)
+
+  anty(wager)
+
+  turnPicker(count)
+
+}
+
+function start1(){
+
+var random = Math.floor(Math.random() * dreidelSides.length)
+
+if(random == 0){
+  playerOneMoney += pot
+  alert("Player One landed on " + dreidelSides[0] + ", you won " + pot + "\r\n" + "Player One sheckel count = "  + playerOneMoney + "\r\n" + "Player Two sheckel count = " + playerTwoMoney + "\r\n" + "Pot total = " + 0)
+  pot = 0
+}
+
+if(random == 1){
+  playerOneMoney = playerOneMoney - x
+  pot = pot - (wager * -1)
+  alert("Player One landed on " + dreidelSides[1] + ", you lose " + wager + "\r\n" + "Player One sheckel count = "  + playerOneMoney + "\r\n" + "Player Two sheckel count = " + playerTwoMoney + "\r\n" + "Pot total = " + pot)
+}
+
+if(random == 2){
+  playerOneMoney += Math.floor(pot * .5)
+  pot -= Math.floor(pot * .5)
+  alert("Player One landed on " + dreidelSides[2] + ", you won " + (pot*.5) + "\r\n" + "Player One sheckel count = "  + playerOneMoney + "\r\n" + "Player Two sheckel count = " + playerTwoMoney + "\r\n" + "Pot total = " + pot)
+}
+
+if(random == 3){
+  alert("Player One landed on " + dreidelSides[3] + ", you won " + 0 + "\r\n" + "Player One sheckel count = "  + playerOneMoney + "\r\n" + "Player Two sheckel count = " + playerTwoMoney + "\r\n" + "Pot total = " + pot)
+}
+
+count = count + 1
+
+}
+
+function start2(){
+
+var random = Math.floor(Math.random() * dreidelSides.length)
+
+if(random == 0){
+  playerTwoMoney += pot
+  alert("Player Two landed on " + dreidelSides[0] + ", you won " + pot + "\r\n" + "Player Two sheckel count = "  + playerTwoMoney + "\r\n" + "Player One sheckel count = " + playerOneMoney + "\r\n" + "Pot total = " + 0)
+  pot = 0
+}
+
+if(random == 1){
+  playerTwoMoney = playerOneMoney - x
+  pot = pot - (wager *-1)
+  alert("Player Two landed on " + dreidelSides[1] + ", you won " + wager + "\r\n" + "Player Two sheckel count = "  + playerTwoMoney + "\r\n" + "Player One sheckel count = " + playerOneMoney + "\r\n" + "Pot total = " + pot)
+}
+
+if(random == 2){
+  playerTwoMoney += Math.floor(pot * .5)
+  pot -= Math.floor(pot * .5)
+  alert("Player Two landed on " + dreidelSides[2] + ", you won " + (pot*.5) + "\r\n" + "Player Two sheckel count = "  + playerTwoMoney + "\r\n" + "Player One sheckel count = " + playerOneMoney + "\r\n" + "Pot total = " + pot)
+}
+
+if(random == 3){
+  alert("Player Two landed on " + dreidelSides[3] + ", you won " + 0 + "\r\n" + "Player Two sheckel count = "  + playerTwoMoney + "\r\n" + "Player One sheckel count = " + playerOneMoney + "\r\n" + "Pot total = " + pot)
+}
+
+count = count + 1
+
+}
+
+function reset(){
+
+playerOneMoney = 100
+playerTwoMoney = 100
+pot = 0
+alert("Game Reset")
+
+}
+
+function anty(x){
+playerOneMoney = playerOneMoney - x
+playerTwoMoney = playerTwoMoney - x
+pot = pot + (x*2)
+}
+
+function turnPicker(x){
+
+  if(x % 2 == 0){    // if x is even
+    start1()
+  } else if(x % 2 !== 0){  // if x is odd
+    start2()
+  }
+}
+
+</script>
+
+</body></html>

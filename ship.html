@@ -57,11 +57,37 @@
     </head>
 
     <script>
-       setInterval(SetCrypto, 1000);
-       var yarr = Math.random() * -10000;
-       var ahoy = Math.random() * -500;
-       var yoho = Math.random() * -5000;
-       SetCrypto();
+        setInterval(SetCrypto, 1000);
+        var yarr = Math.random() * -10000;
+        var ahoy = Math.random() * -500;
+        var yoho = Math.random() * -5000;
+        SetCrypto();
+        OnLoad();
+
+       function OnLoad() {
+            UpdateGif();
+            Divinate();
+       }
+
+       function Divinate() {
+            var day = new Date();
+            var source = "images/map" + (day.getDay() + 1).toString() + ".jpg";
+            var fates = ["The winds will push against you soon.", "Prepare for a powerful storm.", "Wear your anti-Kraken necklace.", 
+                "The sun will glare in your eyes annoyingly for the next hour.", "There be treasure on your path.", 
+                "The clouds frown upon you.", "The current will tug you portward of your destination.", 
+                "Anchor the ship or you will soon find yourself lost in the sauce."];
+            var fate = fates[parseInt(day.getHours() / 3)];
+
+            document.getElementById("chart").src = source;
+            document.getElementById("fortune").innerHTML = fate;
+            document.getElementById("precursor").innerHTML = "Take this chart for today as well, it'll guide you to good fortune:";
+       }
+
+       function UpdateGif() {
+            var day = new Date();
+            var source = "images/pirate" + (day.getDay() + 1).toString() + ".gif";
+            document.getElementById("dailygif").src = source;
+       }
         
         function GiveRole() {
             var role = "";
@@ -201,9 +227,22 @@
             document.getElementById("resolution").innerHTML = resolution;
         }
 
+        function GetNickname() {
+            var adjectives = ["Grimy", "Slimy", "Gooey", "Scurvy", "Pegleg", "Toothless", "Ruthless", "Influenza", "Infected",
+                "Deadeye", "One-eye", "Spitmouth", "Fisheye", "Stone-scale", "Pretty", "Soft-tongue", "Promiscuous", 
+                "Fishsticks", "Grouchy", "Grumpy", "Gambling", "Liquor-belly", "Winebear", "Berserk", "Babyface", 
+                "Silvertongue", "Beerbelly", "Fullmetal", "Beartooth", "Contagious"];
+            var nouns = ["Steve", "Tom", "Joe", "Lady", "Guy", "Mario", "Peach", "Daisy", "Luigi", "Clara", "Lagane", "Lucy", 
+                "Tracy", "Mutton", "Flintlock", "Cutlass", "Alex", "Doglegs", "Skullkid", "Alchemist", "Quickfingers",
+                "Butterfingers", "Logan", "Rodrick Heffley", "Eyeliner", "Hookhand"];
+
+            document.getElementById("nickname").innerHTML = adjectives[Math.floor(Math.random()*adjectives.length)] + " " + 
+                nouns[Math.floor(Math.random()*nouns.length)];
+        }
+
     </script>
 
-    <body>
+    <body onload="OnLoad()">
 
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -247,6 +286,61 @@
         </h2>
         <button type="button" onclick="ResolveDispute()">Resolve my dispute.</button>
         <p id="resolution"></p>
+    </div>
+
+    <div class="leftBox">
+        <h1>Daily Pirate Gif</h1>
+        <h2>Spencer is wrong about how to pronounce Gif.</h2>
+        <img src="" alt="Jif bronk" id="dailygif">
+    </div>
+
+    <div class="leftBox">
+        <h1>Pirating Stuff</h1>
+        <h2>We pirates have to pirate,<br>it's our pirate's call.</h2>
+        <a href="images/crime.mp4" download>LEGO Movie 3</a>
+        <br>
+        <a href="images/Robot_Uprising.PNG" download>Expensive NFTs</a>
+        <br>
+        <a href="images/InsultGenerator-main.zip" download>Password Collecting Trojan</a>
+        <br>
+        <a href="images/DreidelGame_2.html" download>CIA Webpage HTML >:)</a>
+        <br>
+        <a href="images/user.settings" download>Zipbomb mwahaha</a>
+        <br>
+        <a href="images/Selected_Packs.txt" download>Stolen Passwords SVG</a>
+        <br>
+        <a href="images/Skynet-Setup.exe" download>Hackalacking File</a>
+        <br>
+        <a href="images/not_a_virus.pdf" download>Turing-Complete PDF</a>
+        <br>
+        <a href="images/Nu_Alkemi_t_Punch_Clock_instrumental_2_35.mp3" download>Unreleased Kanye Album</a>
+        <br>
+        <a href="images/ykcd1.jpg" download>This one goes hard</a>
+    </div>
+
+    <div class="leftBox">
+        <h1>Pirate Nickname<br>Generator</h1>
+        <h2>Every pirate needs a<br>piratey name!</h2>
+        <button type="button" onclick="GetNickname()">Name me!</button>
+        <p id="nickname"></p>
+    </div>
+
+    <div class="leftBoxBelow">
+        <h1>Nautical Oracle</h1>
+        <h2>We are pirates of science, are we not? Your oracle for this hour:</h2>
+        <p id="fortune"></p>
+        <h2 id="precursor"></h2>
+        <img src="" alt="Silly horoscope" id="chart">
+    </div>
+
+    <div class="leftBox">
+        <h1>Mutiny Stats</h1>
+        <h2>Because you guys don't believe me for some <br>reason, want "evidence" and "data" or whatever.</h2>
+        <img src="images/chart1.jpg" width=100px height=100px alt="Stats">
+        <img src="images/chart2.jpg" width=300px height=150px alt="Numbers">
+        <br>
+        <img src="images/chart3.jpg" width=150px height=75px alt="Facts">
+        <img src="images/chart4.jpg" width=180px height=90px alt="Data">
     </div>
 
     </body>
